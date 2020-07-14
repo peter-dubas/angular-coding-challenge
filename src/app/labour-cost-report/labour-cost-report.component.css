@@ -1,0 +1,172 @@
+/*CONTAINER*/
+.main-container {
+  padding: 10px;
+  width: 900px;
+  margin: 0 auto;
+  font-size: 12px;
+}
+.main-container h1 {
+  font-size: 1.7rem;
+  letter-spacing: 0.13rem;
+  color: #2E3236;
+  font-weight: 100;
+}
+
+/*TABLE*/
+.labour-cost-report {
+  border-collapse: collapse;
+}
+.labour-cost-report .col-bg {
+  width: 20%;
+}
+.labour-cost-report .col-sm {
+  width: 10%;
+}
+
+/*TABLE HEADERS*/
+.labour-cost-report .header {
+  padding: 10px;
+}
+.labour-cost-report .header-titles {
+  text-transform: uppercase;
+  font-weight: 100;
+  color: #B8BCBE;
+  padding-top: 18px;
+  padding-bottom: 18px;
+  text-align: left;
+  font-size: 0.70rem;
+  letter-spacing: 0.05rem;
+  word-break: break-word;
+  word-spacing: 1000px;
+  vertical-align: top;
+  cursor: pointer;
+}
+.labour-cost-report .header .arrow-down {
+  color: #C76E6D;
+  font-weight: 100;
+  font-size: 15px;
+  line-height: 15px;
+  padding: 0 0.2rem;
+}
+.labour-cost-report .header-gross-pay,
+.labour-cost-report .header-payroll,
+.labour-cost-report .header-labour-cost {
+  text-align: right;
+}
+.labour-cost-report .header-gross-pay {
+  padding-right: 0.5rem;
+}
+.labour-cost-report .header-labour-cost,
+.labour-cost-report .header-work-force {
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+
+/*TABLE BODY DATA*/
+.labour-cost-report .row-data td {
+  padding-top: 0.85rem;
+  padding-bottom: 0.85rem;
+}
+.labour-cost-report .row-data.highlighted td {
+  padding-top: 1.5rem;
+  padding-bottom: 2.8rem;
+}
+
+.labour-cost-report .data-provider {
+  color: #B3B7BA;
+  font-weight: 800;
+  letter-spacing: 0.06rem;
+}
+.labour-cost-report .data-worker,
+.labour-cost-report .data-gross-pay,
+.labour-cost-report .data-payroll,
+.labour-cost-report .data-labour-cost,
+.labour-cost-report .footer-worker,
+.labour-cost-report .footer-gross-pay,
+.labour-cost-report .footer-payroll,
+.labour-cost-report .footer-labour-cost {
+  font-size: 1.5rem;
+  font-weight: 100;
+  letter-spacing: 0.05rem;
+  color: #AFB4B6;
+}
+.labour-cost-report .data-comp-score,
+.labour-cost-report .data-work-force,
+.labour-cost-report .footer-comp-score,
+.labour-cost-report .footer-work-force {
+  color: #B3B7BA;
+  font-weight: 800;
+  letter-spacing: 0.06rem;
+  font-size: 1rem;
+}
+.labour-cost-report .data-gross-pay,
+.labour-cost-report .data-work-force,
+.labour-cost-report .footer-gross-pay,
+.labour-cost-report .footer-work-force {
+  color: #696C6F;
+  border-left: solid 0.05rem #DDE2E5;
+}
+.labour-cost-report .data-gross-pay,
+.labour-cost-report .footer-gross-pay {
+  padding-right: 0.5rem;
+}
+.labour-cost-report .data-labour-cost,
+.labour-cost-report .data-work-force,
+.labour-cost-report .footer-labour-cost,
+.labour-cost-report .footer-work-force {
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+.labour-cost-report .data-gross-pay,
+.labour-cost-report .data-payroll,
+.labour-cost-report .data-labour-cost,
+.labour-cost-report .footer-gross-pay,
+.labour-cost-report .footer-payroll,
+.labour-cost-report .footer-labour-cost {
+  text-align: right;
+}
+
+/*ROW HIGHLIGHT*/
+.labour-cost-report .highlighted .data-gross-pay,
+.labour-cost-report .highlighted .data-labour-cost,
+.labour-cost-report .highlighted .data-work-force,
+.labour-cost-report .footer-gross-pay,
+.labour-cost-report .footer-labour-cost,
+.labour-cost-report .footer-work-force {
+  border: none;
+  position: relative;
+}
+.labour-cost-report .highlighted .data-gross-pay::before,
+.labour-cost-report .highlighted .data-labour-cost::after,
+.labour-cost-report .footer-gross-pay::before,
+.labour-cost-report .footer-labour-cost::after {
+  content: '';
+  border-left: solid 0.05rem #DDE2E5;
+  position: absolute;
+  top: 0.6rem; /*50% of padding for td*/
+  left: 0;
+  width: 1px;
+  height: 3.2rem;
+}
+.labour-cost-report .highlighted .data-labour-cost::after,
+.labour-cost-report .footer-labour-cost::after {
+  left: auto;
+  right: -2px; /*width + border*/
+}
+
+/*TABLE FOOTER*/
+.labour-cost-report .footer-data td {
+  padding-top: 2.8rem;
+  color: #2E3236
+}
+.labour-cost-report .footer-header {
+  text-align: right;
+  padding-right: 2.5rem;
+  letter-spacing: 0.06rem;
+  font-weight: 800;
+}
+
+.labour-cost-report .footer-gross-pay::before,
+.labour-cost-report .footer-labour-cost::after {
+  top: 2.1rem;
+}
