@@ -4,6 +4,9 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import { LabourCostReportComponent } from './labour-cost-report/labour-cost-report.component';
 import {FontAwesomeModule} from '@fortawesome/angular-fontawesome';
+import {HttpClientModule} from '@angular/common/http';
+import {LabourStatsService} from './labour-stats.service';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -12,9 +15,11 @@ import {FontAwesomeModule} from '@fortawesome/angular-fontawesome';
   ],
   imports: [
     BrowserModule,
-    FontAwesomeModule
+    FontAwesomeModule,
+    HttpClientModule,
+    BrowserAnimationsModule
   ],
-  providers: [],
+  providers: [LabourStatsService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

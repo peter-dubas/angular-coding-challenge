@@ -3,55 +3,42 @@
   <table class="labour-cost-report">
     <thead class="header">
       <tr>
-        <th scope="col" class="header-titles header-provider col-bg">
-          Payroll Provider<fa-icon class="arrow-down" [icon]="faAngleDown"></fa-icon>
+        <th
+          scope="col"
+          *ngFor="let currentHeader of tableSettings.header.columns"
+          [class]="tableSettings.header.defaultClasses.join(' ') + ' ' + currentHeader.classes.join(' ') + ' ' + currentHeader.id"
+          (click)="onHeaderToggle(currentHeader.id)"
+          [ngClass]="{'sortedColumn': lsService.activeSorting === currentHeader.id}"
+        >
+          {{currentHeader.name}}
+          <fa-icon class="arrow-down" [icon]="faAngleDown" *ngIf="lsService.sortingAsc && lsService.activeSorting === currentHeader.id"></fa-icon>
+          <fa-icon class="arrow-up" [icon]="faAngleUp" *ngIf="!lsService.sortingAsc && lsService.activeSorting === currentHeader.id"></fa-icon>
         </th>
-        <th scope="col" class="header-titles header-worker col-sm">Worker</th>
-        <th scope="col" class="header-titles header-comp-score col-sm">Compliance Score</th>
-        <th scope="col" class="header-titles header-gross-pay col-bg">Gross Pay (£)</th>
-        <th scope="col" class="header-titles header-payroll col-sm">Payroll Admin (£)</th>
-        <th scope="col" class="header-titles header-labour-cost col-bg">Labour Cost (£)</th>
-        <th scope="col" class="header-titles header-work-force col-sm">Work Force</th>
       </tr>
     </thead>
-    <tbody>
-      <tr class="row-data highlighted">
-        <td class="data-provider col-bg">Direct Contractors</td>
-        <td class="data-worker col-sm ">13</td>
-        <td class="data-comp-score col-sm">0%</td>
-        <td class="data-gross-pay col-bg">48,158</td>
-        <td class="data-payroll col-sm">-</td>
-        <td class="data-labour-cost col-bg">48,158</td>
-        <td class="data-work-force col-sm">1.5%</td>
-      </tr>
-      <tr class="row-data">
-        <td class="data-provider col-bg">Canal Services Ltd</td>
-        <td class="data-worker col-sm ">1</td>
-        <td class="data-comp-score col-sm">0%</td>
-        <td class="data-gross-pay col-bg">605</td>
-        <td class="data-payroll col-sm">-</td>
-        <td class="data-labour-cost col-bg">605</td>
-        <td class="data-work-force col-sm">0.1%</td>
-      </tr>
-      <tr class="row-data">
-        <td class="data-provider col-bg">CIS Payments Ltd</td>
-        <td class="data-worker col-sm ">1</td>
-        <td class="data-comp-score col-sm">0%</td>
-        <td class="data-gross-pay col-bg">2772</td>
-        <td class="data-payroll col-sm">-</td>
-        <td class="data-labour-cost col-bg">2772</td>
-        <td class="data-work-force col-sm">0.1%</td>
+    <tbody *ngIf="labourStats" [@reportDataChangeTrigger]="lsService.animationTrigger">
+      <tr
+        class="row-data"
+        *ngFor="let currentContractor of labourStats.stats; let ind = index"
+        [ngClass]="{'highlighted': currentContractor.type === 'directContractors' && ind === 0 && lsService.activeSorting === 'header-provider'}"
+      >
+        <td
+          *ngFor="let currentBody of tableSettings.body.columns"
+          [class]="tableSettings.body.defaultClasses.join(' ') + ' ' + currentBody.classes.join(' ') + ' ' + currentBody.id"
+          [ngClass]="{'sortedColumn': lsService.activeSorting.replace('header', 'data') === currentBody.id}"
+        >
+          {{currentContractor[currentBody.name]}}
+        </td>
       </tr>
     </tbody>
     <tfoot>
-      <tr class="footer-data">
-        <td class="footer-header col-bg">TOTAL</td>
-        <td class="footer-worker col-sm">867</td>
-        <td class="footer-comp-score col-sm">83%</td>
-        <td class="footer-gross-pay col-bg">1,290,475</td>
-        <td class="footer-payroll col-sm">-</td>
-        <td class="footer-labour-cost col-bg">1,290,475</td>
-        <td class="footer-work-force col-sm">100%</td>
+      <tr class="footer-data" *ngFor="let currentTotal of labourStats.total">
+        <td
+          *ngFor="let currentFooter of tableSettings.footer.columns"
+          [class]="tableSettings.footer.defaultClasses.join(' ') + ' ' + currentFooter.classes.join(' ') + ' ' + currentFooter.id"
+        >
+          {{currentFooter.id === 'footer-header' ? currentTotal[currentFooter.name].toUpperCase() : currentTotal[currentFooter.name]}}
+        </td>
       </tr>
     </tfoot>
   </table>

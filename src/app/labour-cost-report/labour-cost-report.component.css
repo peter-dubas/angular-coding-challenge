@@ -25,28 +25,31 @@
 
 /*TABLE HEADERS*/
 .labour-cost-report .header {
-  padding: 10px;
+  padding: 1rem;
 }
 .labour-cost-report .header-titles {
   text-transform: uppercase;
   font-weight: 100;
   color: #B8BCBE;
-  padding-top: 18px;
-  padding-bottom: 18px;
+  padding-top: 1.15rem;
+  padding-bottom: 1.15rem;
   text-align: left;
   font-size: 0.70rem;
   letter-spacing: 0.05rem;
-  word-break: break-word;
-  word-spacing: 1000px;
   vertical-align: top;
   cursor: pointer;
 }
-.labour-cost-report .header .arrow-down {
+.labour-cost-report .header .arrow-down,
+.labour-cost-report .header .arrow-up {
   color: #C76E6D;
   font-weight: 100;
-  font-size: 15px;
-  line-height: 15px;
+  font-size: 0.9rem;
+  line-height: 0.9rem;
   padding: 0 0.2rem;
+  position: absolute;
+}
+.labour-cost-report .header-provider {
+  padding-right: 5rem;
 }
 .labour-cost-report .header-gross-pay,
 .labour-cost-report .header-payroll,
@@ -55,11 +58,14 @@
 }
 .labour-cost-report .header-gross-pay {
   padding-right: 0.5rem;
+  padding-left: 6.8rem;
 }
-.labour-cost-report .header-labour-cost,
+.labour-cost-report .header-labour-cost {
+  padding-left: 5rem;
+  padding-right: 1.5rem;
+}
 .labour-cost-report .header-work-force {
   padding-left: 1.5rem;
-  padding-right: 1.5rem;
 }
 
 /*TABLE BODY DATA*/
@@ -68,7 +74,7 @@
   padding-bottom: 0.85rem;
 }
 .labour-cost-report .row-data.highlighted td {
-  padding-top: 1.5rem;
+  padding-top: 2.2rem;
   padding-bottom: 2.8rem;
 }
 
@@ -76,6 +82,7 @@
   color: #B3B7BA;
   font-weight: 800;
   letter-spacing: 0.06rem;
+  padding-right: 1rem;
 }
 .labour-cost-report .data-worker,
 .labour-cost-report .data-gross-pay,
@@ -145,13 +152,13 @@
   position: absolute;
   top: 0.6rem; /*50% of padding for td*/
   left: 0;
-  width: 1px;
+  width: 0.001rem;
   height: 3.2rem;
 }
 .labour-cost-report .highlighted .data-labour-cost::after,
 .labour-cost-report .footer-labour-cost::after {
   left: auto;
-  right: -2px; /*width + border*/
+  right: -0.07rem; /*width + border*/
 }
 
 /*TABLE FOOTER*/
@@ -169,4 +176,67 @@
 .labour-cost-report .footer-gross-pay::before,
 .labour-cost-report .footer-labour-cost::after {
   top: 2.1rem;
+}
+
+/*TABLE STATE STYLES*/
+.labour-cost-report .sortedColumn {
+  color: #000;
+}
+
+
+/*RESPONSIVENESS*/
+/* Extra small devices (portrait phones, less than 576px) */
+@media (max-width: 576px) {
+  .main-container {
+    padding: 10px;
+    width: 300px;
+  }
+  .labour-cost-report .header .arrow-down,
+  .labour-cost-report .header .arrow-up {
+    padding: 0;
+  }
+}
+
+/* Small devices (landscape phones, less than 768px) */
+@media (max-width: 768px) {
+  .main-container {
+    padding: 10px;
+    width: 550px;
+  }
+  .labour-cost-report .header .arrow-down,
+  .labour-cost-report .header .arrow-up {
+    padding: 0;
+  }
+  .labour-cost-report .header-gross-pay {
+    padding-right: 0.5rem;
+    padding-left: 4.8rem;
+  }
+  .labour-cost-report .header-labour-cost {
+    padding-left: 4rem;
+  }
+  .labour-cost-report .header-work-force {
+    padding-left: 0.8rem;
+  }
+  .labour-cost-report .data-labour-cost,
+  .labour-cost-report .data-work-force,
+  .labour-cost-report .footer-labour-cost,
+  .labour-cost-report .footer-work-force {
+    padding-left: 1.0rem;
+    padding-right: 1.0rem;
+  }
+  .labour-cost-report .col-bg {
+    width: 15%;
+  }
+}
+
+/* Medium devices (tablets, less than 992px) */
+@media (max-width: 992px) {
+  .main-container {
+    padding: 5px;
+    width: 750px;
+  }
+  .labour-cost-report .header .arrow-down,
+  .labour-cost-report .header .arrow-up {
+    padding: 0 0.1rem;
+  }
 }
